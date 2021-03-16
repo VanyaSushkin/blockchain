@@ -60,4 +60,26 @@ contract Test
     {
         return (homes[adr].area, homes[adr].cost);
     }
+    
+    
+    function AddEmployee(address  _adr, string memory _name, string memory _position, string memory _phoneNumber) public
+    {
+        Employee memory newEmployee;
+        newEmployee.name = _name;
+        newEmployee.position = _position;
+        newEmployee.phoneNumber = _phoneNumber;
+        emplyees[_adr] = newEmployee;
+    }
+    
+    function EditEmployee(address _adr, string memory _name, string memory _pos, string memory _phone) public 
+    { 
+        emplyees[_adr].name = _name;
+        emplyees[_adr].position = _pos; 
+        emplyees[_adr].phoneNumber = _phone; 
+    }
+    
+    function DeleteEmployee(address _adr) public 
+    {
+        delete emplyees[_adr]; 
+    }
 }
